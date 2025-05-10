@@ -11,7 +11,7 @@ text = "\n".join([page.page_content for page in pages])
 agent = Model.llm
 
 
-print("Enter agent promt: \n")
+print("Enter agent prompt: ")
 user_input = input()
 
 response = agent.invoke(input=f"{user_input} {text}")
