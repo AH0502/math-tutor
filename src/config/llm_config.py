@@ -9,7 +9,3 @@ class Model:
         temperature=0,
         api_key=os.environ['OPENAI_API_KEY'],
     )
-    messages = [
-        SystemMessage(content="You are a math tutor with years of experience.")
-        
-    ]
