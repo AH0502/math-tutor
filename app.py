@@ -1,6 +1,9 @@
 import streamlit as st 
 from langchain_openai import ChatOpenAI
 from langchain.schema import HumanMessage
+from PIL import Image
+import io
+from base64 import b64encode
 
 
 st.title("🧑‍🏫 Math Tutor ")
@@ -13,7 +16,11 @@ with st.form("main"):
     submitted = st.form_submit_button()
 
 if file is not None and submitted:
-    data = file.read()
+    image = Image.open(file)
+    buffered = io.BytesIO()
+    image.save(buffered, format="JPEG")
+    img_b64 = b64encode(buffered.getvalue()).decode()
+    
 
     llm = ChatOpenAI(
         model='gpt-4o',
@@ -23,7 +30,7 @@ if file is not None and submitted:
     messages = [
         HumanMessage(content=[
         {"type": "text", "text": text},
-        {"type": "image", "image": data}
+        {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{img_b64}"}}  
     ])
     ]
 
