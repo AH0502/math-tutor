@@ -12,7 +12,7 @@ with st.form("tutor"):
 
 if file is not None and submitted and file.type != 'application/pdf':
 
-    llm = src.utils.get_llm(api_key)
+    llm = src.utils.get_llm(st.session_state.api_key)
 
     with st.spinner("Thinking"):
         response = src.utils.process_jpeg(file, text, llm)
@@ -22,7 +22,7 @@ if file is not None and submitted and file.type != 'application/pdf':
 
 elif file is not None and file.type == 'application/pdf':
 
-    llm = src.utils.get_llm(api_key)
+    llm = src.utils.get_llm(st.session_state.api_key)
 
     with st.spinner("Thinking"):
         response = src.utils.process_pdf(file, text, llm)

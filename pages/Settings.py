@@ -21,8 +21,14 @@ with profile:
             # Add functionality for user to add courses.
 
 with model:
-    model = st.selectbox("Model", ["GPT-4o", "GPT-3-Turbo"])
-    api_key = st.text_input("OpenAI API Key:", type="password")
+    with st.form("Model Settings"):
+        model = st.selectbox("Model", ["GPT-4o", "GPT-3-Turbo"])
+        api_key = st.text_input("OpenAI API Key:", type="password")
+        submitted = st.form_submit_button("Save")
+        if submitted:
+            st.session_state.api_key = api_key
+            st.success("Saved")
+
 
 
 
