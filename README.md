@@ -1,5 +1,5 @@
 # Math Tutor Smart Assistant
-![logo](./Images/logo.png)
+![logo](./Images/logo2.png)
 ## Overview 
 A Python/LangChain project that allows users to upload notes and receive math tutoring.
 ![menu](./Images/math-tutor_menu.png)
