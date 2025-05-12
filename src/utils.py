@@ -2,6 +2,7 @@ from langchain_openai import ChatOpenAI
 from langchain.schema import HumanMessage, SystemMessage
 from langchain_community.document_loaders import PyMuPDFLoader
 from langchain_community.tools.e2b_data_analysis.tool import UploadedFile
+import streamlit as st
 import io
 from base64 import b64encode
 from PIL import Image
