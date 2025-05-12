@@ -3,6 +3,7 @@ import src.utils
 from pages.Settings import api_key
 
 st.title("Math Tutor")
+st.logo('./Images/logo2.png', size='large')
 
 with st.form("tutor"):   
     file = st.file_uploader("Upload notes or homework:", type=['jpeg', 'pdf'])

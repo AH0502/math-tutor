@@ -2,6 +2,7 @@ import streamlit as st
 from src.User import User
 
 st.title("Settings 🛠️")
+st.logo('./Images/logo2.png', size='large')
 
 profile, model = st.tabs(["Profile", "Model"])
 
@@ -14,7 +15,7 @@ with profile:
         courses = st.text_input("Courses")
         submitted = st.form_submit_button("Save")
         if submitted:
-            st.session_state.user = User(name, email, dob, education)
+            st.session_state.user = User(name, email, dob, education, courses)
             st.success("Saved")
 
             # Add functionality for user to add courses.
