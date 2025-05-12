@@ -4,7 +4,8 @@ st.title("Practice")
 st.logo('./Images/logo2.png', size='large')
 
 
-if 'user' in st.session_state:
+
+if 'user' in st.session_state and st.session_state.user.name != '':
     user = st.session_state.user
     st.markdown(f"## Welcome {user.name}!")
     

@@ -16,7 +16,10 @@ with profile_tab:
         education = st.selectbox("Education", ["Middle School", "High School", "Undergraduate", "Graduate"])
         submitted = st.form_submit_button("Save")
         if submitted:
-            st.session_state.user = User(name, email, dob, education, []) 
+            st.session_state.user.name = name
+            st.session_state.user.email = email
+            st.session_state.user.dob = dob
+            st.session_state.user.education = education
             st.success("Saved")
 
 with courses_tab:
@@ -27,7 +30,7 @@ with courses_tab:
             st.session_state.user.add_course(course)
             st.success("Course added")
 
-    if st.session_state.user.courses == ['']:
+    if st.session_state.user.courses == []:
         st.markdown("There are no courses to display")
 
     else:

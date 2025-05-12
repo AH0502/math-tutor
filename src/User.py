@@ -7,7 +7,7 @@ class User:
             email: str = '',
             dob: date = date(2000, 1, 1),
             education: str = '',
-            courses:list[str] = ['']
+            courses:list[str] = []
     ):
         self.name = name
         self.email = email
