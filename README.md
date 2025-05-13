@@ -2,7 +2,7 @@
 ![logo](./Images/logo2.png)
 ## Overview 
 A Python/LangChain project that allows users to upload notes and receive math tutoring.
-![menu](./Images/math-tutor_menu.png)
+![menu](./Images/demo1.mov)
 
 ## Tech Stack
 - **Frontend** Streamlit
