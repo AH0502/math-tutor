@@ -6,7 +6,8 @@ st.logo('./Images/logo2.png', size='large')
 
 profile_tab, courses_tab, model_tab = st.tabs(["Profile", "Courses", "Model"])
 
-st.session_state.user = User('', '', ) 
+if not 'user' in st.session_state:
+    st.session_state.user = User()
 
 with profile_tab:
     with st.form("Profile"):
@@ -43,6 +44,13 @@ with model_tab:
     with st.form("Model Settings"):
         model = st.selectbox("Model", ["GPT-4o", "GPT-3-Turbo"])
         api_key = st.text_input("OpenAI API Key:", type="password")
+        temperature = st.slider(
+            "Temperature",
+            min_value=0.0, 
+            max_value=1.0,
+            step=0.05,
+            help="A parameter that controls the randomness of the model's response. Generally, higher" \
+            " temperatures lead to less predictable responses. If unsure, leave parameter = 0.")
         submitted = st.form_submit_button("Save")
         if submitted:
             st.session_state.api_key = api_key
